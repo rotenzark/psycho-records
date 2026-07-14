@@ -1,0 +1,211 @@
+/* ============================================================
+   Psycho — dischi & vinili dal 1988 (Zamenhof, Ticinese)
+   Gesto-firma: il CARTELLINO del disco (etichetta mono: pressing+
+   condizione+prezzo) + estetica gig-poster DIY nera + eventi in-store
+   Font: Big Shoulders Display (display) · Space Grotesk (body) · DM Mono (tag)
+   ============================================================ */
+:root{
+  --ink:#151210; --ink-2:#1F1B17; --ink-3:#2A241E;
+  --bone:#ECE3D0; --bone-2:#C7BCA4; --bone-mute:#8F8674;
+  --pink:#E8368F; --pink-2:#C21F70;
+  --blue:#3A72F0; --blue-2:#2A55C8;
+  --line:rgba(236,227,208,.15); --line-2:rgba(236,227,208,.28);
+  --shadow:0 24px 60px -30px rgba(0,0,0,.7);
+  --display:'Big Shoulders Display',Impact,sans-serif;
+  --body:'Space Grotesk',system-ui,sans-serif;
+  --mono:'DM Mono','Courier New',monospace;
+  --wrap:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--ink);color:var(--bone);line-height:1.62;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:17px}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.94;letter-spacing:-.005em;text-transform:uppercase}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 26px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+.kick{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--pink)}
+
+/* ticker / marquee bar */
+.ticker{background:var(--pink);color:var(--ink);overflow:hidden;white-space:nowrap;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.ticker__in{display:inline-block;padding:8px 0;font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.06em;text-transform:uppercase;animation:tick 26s linear infinite}
+.ticker__in span{padding:0 18px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker__in{animation:none}}
+
+/* ---------- intro ---------- */
+#intro{position:fixed;inset:0;z-index:200;background:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  transition:opacity .8s ease,visibility .8s}
+#intro.gone{opacity:0;visibility:hidden}
+#intro .i-name{font-family:var(--display);font-weight:900;font-size:19vw;color:var(--bone);line-height:.8;letter-spacing:-.02em}
+#intro .i-name em{font-style:normal;color:var(--pink)}
+#intro .i-sub{font-family:var(--mono);font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--bone-mute)}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:100;background:rgba(21,18,16,.92);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--display);font-weight:900;font-size:26px;letter-spacing:-.01em;color:var(--bone)}
+.brand em{font-style:normal;color:var(--pink)}
+.nav-links{display:flex;gap:26px}
+.nav-links a{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-2);transition:color .25s}
+.nav-links a:hover{color:var(--pink)}
+.nav-cta{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--pink);color:var(--pink);padding:9px 15px;transition:.25s}
+.nav-cta:hover{background:var(--pink);color:var(--ink)}
+.lang{display:flex;gap:2px;align-items:center;font-family:var(--mono);font-size:12px;color:var(--bone-mute)}
+.lang button{background:none;border:none;font:inherit;color:var(--bone-mute);cursor:pointer;padding:3px 5px}
+.lang button.on{color:var(--pink)}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.burger span{width:24px;height:2px;background:var(--pink);display:block}
+
+/* ---------- HERO ---------- */
+#hero{padding:48px 0 26px}
+.hero-kick{margin-bottom:16px}
+#hero h1{font-family:var(--display);font-weight:900;font-size:clamp(4rem,17vw,13rem);color:var(--bone);line-height:.82;letter-spacing:-.02em}
+#hero h1 em{font-style:normal;color:var(--pink)}
+.hero-sub{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:baseline;margin-top:18px}
+.hero-sub .big{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,3vw,2rem);text-transform:uppercase;color:var(--bone)}
+.hero-sub .mono{font-family:var(--mono);font-size:.9rem;color:var(--blue);letter-spacing:.04em}
+.hero-lead{margin:16px 0 0;color:var(--bone-2);font-size:1.08rem;max-width:52ch}
+.hero-cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.hero-photo{margin-top:34px;position:relative;border:1px solid var(--line-2);overflow:hidden}
+.hero-photo img{width:100%;height:clamp(320px,52vh,520px);object-fit:cover}
+.hero-photo .pills{position:absolute;left:16px;bottom:16px;display:flex;gap:10px;flex-wrap:wrap}
+.pill{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;background:rgba(21,18,16,.86);border:1px solid var(--line-2);padding:7px 13px;color:var(--bone)}
+.pill b{color:var(--pink)}
+
+.btn{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:13px 22px;transition:.25s;cursor:pointer;border:1px solid var(--pink)}
+.btn-solid{background:var(--pink);color:var(--ink)}.btn-solid:hover{background:var(--pink-2);border-color:var(--pink-2);color:var(--bone)}
+.btn-ghost{color:var(--pink);background:transparent}.btn-ghost:hover{background:var(--pink);color:var(--ink)}
+
+/* ---------- section base ---------- */
+section{padding:76px 0}
+.sec-head{max-width:760px;margin:0 auto 46px;text-align:center}
+.sec-head .kick{display:block;margin-bottom:14px}
+.sec-head h2{font-size:clamp(2.2rem,5.5vw,4rem);color:var(--bone)}
+.sec-head h2 em{font-style:normal;color:var(--pink)}
+.sec-head p{margin-top:14px;color:var(--bone-2)}
+
+/* ---------- STORIA ---------- */
+#storia{background:var(--ink-2)}
+.storia-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.storia-copy .kick{display:block;margin-bottom:14px}
+.storia-copy h2{font-size:clamp(2rem,4.4vw,3.2rem);color:var(--bone);margin-bottom:18px}
+.storia-copy h2 em{font-style:normal;color:var(--pink)}
+.storia-copy p{margin-bottom:15px;color:var(--bone-2)}
+.storia-copy p b{color:var(--bone)}
+.storia-copy .quote{font-family:var(--display);font-weight:700;font-size:1.5rem;line-height:1.15;color:var(--blue);text-transform:none;margin:22px 0 0;border-left:3px solid var(--pink);padding-left:18px}
+.storia-photo{position:relative;border:1px solid var(--line-2);overflow:hidden}
+.storia-photo img{width:100%;height:500px;object-fit:cover}
+
+/* ---------- CARTELLINO (signature) ---------- */
+#cartellino{background:var(--ink)}
+.cart-head{text-align:center;max-width:720px;margin:0 auto 44px}
+.cart-head .kick{display:block;margin-bottom:14px}
+.cart-head h2{font-size:clamp(2rem,4.6vw,3.4rem);color:var(--bone)}
+.cart-head h2 em{font-style:normal;color:var(--pink)}
+.cart-head p{margin-top:14px;color:var(--bone-2)}
+.tags{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:960px;margin:0 auto}
+.tag{background:var(--bone);color:var(--ink);padding:20px 20px 18px;position:relative;box-shadow:var(--shadow);border:1px solid #0000}
+.tag::before{content:"";position:absolute;top:14px;left:14px;width:12px;height:12px;border-radius:50%;border:2px solid var(--ink);background:var(--bone)}
+.tag .fmt{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-2);text-align:right}
+.tag .art{font-family:var(--display);font-weight:800;font-size:1.4rem;line-height:.98;text-transform:uppercase;margin:14px 0 2px;color:var(--ink)}
+.tag .ttl{font-family:var(--body);font-size:.98rem;color:#3a332a;margin-bottom:14px}
+.tag .row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.82rem;border-top:1px dashed rgba(21,18,16,.35);padding-top:8px;color:#3a332a}
+.tag .row b{color:var(--ink)}
+.tag .cond{color:var(--blue-2);font-weight:500}
+.cart-note{text-align:center;font-family:var(--mono);font-size:.9rem;color:var(--bone-mute);margin-top:26px;letter-spacing:.02em}
+
+/* ---------- IN CRATE (cosa trovi) ---------- */
+#crate{background:var(--ink-2)}
+.crate-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1000px;margin:0 auto}
+.crate-card{border:1px solid var(--line);padding:26px 28px;background:var(--ink);transition:.25s}
+.crate-card:hover{border-color:var(--pink)}
+.crate-card .n{font-family:var(--mono);font-size:12px;color:var(--pink);letter-spacing:.1em}
+.crate-card h3{font-size:1.5rem;color:var(--bone);margin:8px 0 8px;text-transform:uppercase}
+.crate-card p{color:var(--bone-2);font-size:.97rem}
+
+/* ---------- GALLERY ---------- */
+.gallery{columns:2;column-gap:14px;max-width:1040px;margin:0 auto}
+.gallery figure{break-inside:avoid;margin:0 0 14px;overflow:hidden;border:1px solid var(--line-2)}
+.gallery img{width:100%;transition:transform .7s ease}
+.gallery figure:hover img{transform:scale(1.05)}
+
+/* ---------- RECENSIONI ---------- */
+#recensioni{background:var(--ink)}
+.rev-top{text-align:center;margin-bottom:34px}
+.rev-score{font-family:var(--display);font-weight:900;font-size:3.6rem;color:var(--pink);line-height:1}
+.rev-stars{color:var(--pink);letter-spacing:3px;font-size:1.1rem;margin:2px 0}
+.rev-src{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-mute)}
+.rev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:960px;margin:0 auto}
+.rev-card{background:var(--ink-2);border:1px solid var(--line);padding:26px 26px 22px}
+.rev-card p{color:var(--bone);font-size:1.02rem;margin:0 0 14px}
+.rev-card .who{font-family:var(--mono);font-size:.82rem;color:var(--pink);letter-spacing:.04em;text-transform:uppercase}
+.rev-card .st{color:var(--pink)}
+
+/* ---------- DOVE ---------- */
+#dove{background:var(--ink-2)}
+.dove-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:stretch}
+.dove-info h2{color:var(--bone);font-size:clamp(2rem,4vw,3rem);margin-bottom:18px}
+.info-row{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.info-row .ic{color:var(--pink);flex:0 0 auto;font-family:var(--mono)}
+.info-row .lb{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-mute);margin-bottom:2px}
+.info-row .vl{color:var(--bone);font-size:1rem}
+.info-row a.vl:hover{color:var(--pink)}
+.hours-line{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:.9rem;padding:3px 0}
+.hours-line.today{color:var(--pink)}
+.hours-line .d{color:var(--bone-2)}
+.hours-line.today .d{color:var(--pink)}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-top:10px;padding:6px 14px;border:1px solid}
+.status .dot{width:8px;height:8px;border-radius:50%}
+.status.open{border-color:var(--pink);color:var(--pink)}.status.open .dot{background:var(--pink)}
+.status.closed{border-color:var(--bone-mute);color:var(--bone-mute)}.status.closed .dot{background:var(--bone-mute)}
+.dove-map{border:1px solid var(--line-2);overflow:hidden;min-height:420px}
+.dove-map iframe{width:100%;height:100%;min-height:420px;border:0;filter:grayscale(.3) contrast(1.05)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+
+/* ---------- FAQ ---------- */
+#faq{background:var(--ink)}
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:var(--display);font-weight:700;font-size:1.35rem;text-transform:uppercase;color:var(--bone);padding:22px 40px 22px 0;position:relative}
+.faq-q::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);color:var(--pink);font-size:1.5rem}
+.faq-item.open .faq-q::after{content:"–"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a p{padding:0 0 22px;color:var(--bone-2)}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--pink);color:var(--ink);text-align:center;padding:58px 0 30px}
+footer .f-name{font-family:var(--display);font-weight:900;font-size:clamp(3rem,10vw,7rem);line-height:.85;letter-spacing:-.02em}
+footer .f-sub{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink);margin:12px 0 24px}
+footer .f-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+footer .f-links a{color:rgba(21,18,16,.82);transition:.25s}
+footer .f-links a:hover{color:var(--bone)}
+footer .f-fine{margin-top:26px;font-family:var(--mono);font-size:.78rem;color:rgba(21,18,16,.66);line-height:1.7}
+footer .f-fine a{color:rgba(21,18,16,.82);text-decoration:underline}
+
+/* ---------- action bar ---------- */
+.actionbar{position:fixed;bottom:0;left:0;right:0;z-index:90;display:none;background:rgba(21,18,16,.97);backdrop-filter:blur(8px);padding:9px 14px;gap:10px;border-top:1px solid var(--pink)}
+.actionbar a{flex:1;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:11px 6px}
+.actionbar .a-call{background:var(--pink);color:var(--ink)}
+.actionbar .a-map{background:transparent;color:var(--bone);border:1px solid var(--line-2)}
+.actionbar .a-state{font-size:9px;color:var(--pink);display:block;margin-top:2px}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .nav-links.show{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--ink);padding:20px 26px;gap:18px;border-bottom:1px solid var(--line)}
+  .storia-grid,.dove-grid{grid-template-columns:1fr;gap:34px}
+  .storia-photo img{height:400px}
+  .tags{grid-template-columns:1fr}
+  .crate-grid,.rev-grid{grid-template-columns:1fr}
+  .gallery{columns:1}
+  .actionbar{display:flex}
+  body{padding-bottom:66px}
+}
+@media (max-width:560px){ section{padding:54px 0} #intro .i-name{font-size:28vw} }
