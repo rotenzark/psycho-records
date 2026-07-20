@@ -61,7 +61,7 @@
     'cart.kick':'The gesture that sets us apart','cart.h2':'Every record has its <em>tag</em>',
     'cart.sub':'At Psycho every record is tagged by hand: format, pressing and year, condition of the vinyl and the sleeve. You always know what you’re buying — at an honest price.',
     'cart.t1a':'Italian rock','cart.t1t':'Original pressing · 1970s','cart.t2a':'Punk / New wave','cart.t2t':'The right 7", checked','cart.t3a':'Jazz-fusion / Prog','cart.t3t':'Latest releases & reissues',
-    'cart.cond':'Condition','cart.price':'Price','cart.hand':'marked by hand',
+    'cart.cond':'Condition','cart.price':'Price','cart.hand':'marked by hand','cart.honest':'honest, we swear',
     'cart.note':'— record condition graded to the Goldmine standard, from the sleeve to the groove —',
     'crate.kick':'In the crates','crate.h2':'What you find at <em>Psycho</em>','crate.sub':'You won’t find fire-sale bargains: you’ll find the right record, chosen.',
     'crate.c1h':'New & used','crate.c1p':'Large quantities of LPs, 7"s and CDs, both new and second-hand, for every pocket and every search.',
